@@ -2,6 +2,8 @@
 
 Advancement Disabler is a repository for two datapacks that disable all vanilla advancements and recipes for your map and gets rid of all toast messages. Both packs accomplish the same goal, but there are some differences. Select the one that best suits your needs.
 
+You also have the option to **generate these datapacks for any version of Minecraft** by downloading the executable in releases.
+
 - `disable_advancements`
     - This pack invalidates all root advancements by setting an invalid parent.
     - Lightweight and **likely futureproof** but **floods the output log with errors** (they can be ignored).
@@ -15,11 +17,11 @@ Advancement Disabler is a repository for two datapacks that disable all vanilla 
 
 ## Visit here to download the datapacks directly: https://github.com/onnowhere/advancement-disabler/releases
 
-## Generating the datapacks yourself
+## Generating the datapacks yourself from source
 
-The provided program generates two datapacks based on the input Minecraft jar file.
+This guide is for if you wish to generate these datapacks using the source for any Minecraft version. Note that you can also do this without the following setup by simply running the executable provided in releases.
 
-This guide is for if you wish to generate these datapacks yourself for any Minecraft version. You will need Python 3.0. This has been tested on Windows.
+You will need Python 3.0. This has been tested on Windows.
 
 1. Pull or download the code from the repo.
 2. Locate the Minecraft jar for the version you want in `.minecraft/versions`.
