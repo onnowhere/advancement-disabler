@@ -18,7 +18,7 @@ def create_file(filename, contents):
 def create_pack_mcmeta(version, description):
     contents = {
         "pack": {
-            "pack_format": str(version),
+            "pack_format": version,
             "description": description
         }
     }
@@ -64,6 +64,14 @@ def generate_impossible_advancements(jar_file):
     # Verify jar file
     if os.path.splitext(jar_file)[1] != ".jar":
         raise ValueError("Error: Invalid file type. Expected '.jar'.")
+
+    pack_format = 1
+    while True:
+        try:
+            pack_format = eval(input("Enter a value for pack_format: "))
+            break
+        except:
+            print("Invalid value type, must be an integer.")
     
     # Create Directories
     disable_advancements_dir = "disable_advancements"
@@ -72,7 +80,6 @@ def generate_impossible_advancements(jar_file):
     empty_advancements_zip = empty_advancements_dir + ".zip"
     advancements_dir = "data/minecraft/advancements"
     pack_dir = "pack.mcmeta"
-    pack_format = 1
     mc_version = os.path.splitext(os.path.basename(jar_file))[0]
 
     # Reset datapacks to prepare for generation
