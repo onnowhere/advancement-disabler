@@ -88,8 +88,8 @@ def generate_impossible_advancements(jar_file):
     
     # Create Directories
     mc_version = os.path.splitext(os.path.basename(jar_file))[0]
-    disable_advancements_dir = "{0}/disable_advancements".format(mc_version)
-    empty_advancements_dir = "{0}/empty_advancements".format(mc_version)
+    disable_advancements_dir = "versions/{0}/disable_advancements".format(mc_version)
+    empty_advancements_dir = "versions/{0}/empty_advancements".format(mc_version)
     disable_advancements_zip = "{0}.zip".format(disable_advancements_dir)
     empty_advancements_zip = "{0}.zip".format(empty_advancements_dir)
     advancements_dir = "data/minecraft/advancements"
@@ -166,8 +166,7 @@ if __name__ == "__main__":
                 jar_file = input("Drop Minecraft jar file here and hit enter: ")
                 print("Generating advancements...")
                 generate_impossible_advancements(jar_file)
-                input("Finished generating. Press 'enter' or close this window to finish.")
-                break
+                input("Finished generating. Press 'enter' to generate again or close this window to finish.")
             except KeyboardInterrupt:
                 print(e)
                 break
