@@ -27,7 +27,7 @@ You will need Python 3.0. This has been tested on Windows.
 2. Locate the Minecraft jar for the version you want in `.minecraft/versions`.
 3. Double click or run the python file.
 4. Drag the Minecraft jar file into the terminal, or paste the file path, and hit enter.
-5. The datapacks will be automatically generated and zipped.
+5. The datapacks will be automatically generated and zipped in their respective version folder.
 
 ## License
 

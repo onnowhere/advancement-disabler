@@ -5,6 +5,19 @@ import json
 import time
 import sys
 
+def create_path(filepath):
+    if not os.path.exists(filepath):
+        try:
+            os.makedirs(filepath)
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+                
+def create_file(filename, contents):
+    create_path(os.path.dirname(filename))
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.writelines(contents)
+            
 def create_file(filename, contents):
     if not os.path.exists(os.path.dirname(filename)):
         try:
@@ -74,27 +87,27 @@ def generate_impossible_advancements(jar_file):
             print("Invalid value type, must be an integer.")
     
     # Create Directories
-    disable_advancements_dir = "disable_advancements"
-    empty_advancements_dir = "empty_advancements"
-    disable_advancements_zip = disable_advancements_dir + ".zip"
-    empty_advancements_zip = empty_advancements_dir + ".zip"
+    mc_version = os.path.splitext(os.path.basename(jar_file))[0]
+    disable_advancements_dir = "{0}/disable_advancements".format(mc_version)
+    empty_advancements_dir = "{0}/empty_advancements".format(mc_version)
+    disable_advancements_zip = "{0}.zip".format(disable_advancements_dir)
+    empty_advancements_zip = "{0}.zip".format(empty_advancements_dir)
     advancements_dir = "data/minecraft/advancements"
     pack_dir = "pack.mcmeta"
-    mc_version = os.path.splitext(os.path.basename(jar_file))[0]
 
     # Reset datapacks to prepare for generation
     if os.path.exists(disable_advancements_dir):
         rmtree(disable_advancements_dir)
     if os.path.exists(empty_advancements_dir):
         rmtree(empty_advancements_dir)
-    os.mkdir(disable_advancements_dir)
-    os.mkdir(empty_advancements_dir)
+    create_path(disable_advancements_dir)
+    create_path(empty_advancements_dir)
 
     # Create pack mcmetas
     with open(os.path.join(disable_advancements_dir, pack_dir), "w") as f:
-        f.writelines(create_pack_mcmeta(pack_format, "Disable Advancements (" + mc_version + ")"))
+        f.writelines(create_pack_mcmeta(pack_format, "Disable Advancements ({0})".format(mc_version)))
     with open(os.path.join(empty_advancements_dir, pack_dir), "w") as f:
-        f.writelines(create_pack_mcmeta(pack_format, "Empty Advancements (" + mc_version + ")"))
+        f.writelines(create_pack_mcmeta(pack_format, "Empty Advancements ({0})".format(mc_version)))
 
     # Get impossible advancement templates
     impossible_root = create_impossible_root()
