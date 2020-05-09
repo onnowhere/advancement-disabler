@@ -17,16 +17,6 @@ def create_file(filename, contents):
     create_path(os.path.dirname(filename))
     with open(filename, 'w', encoding='utf-8') as f:
         f.writelines(contents)
-            
-def create_file(filename, contents):
-    if not os.path.exists(os.path.dirname(filename)):
-        try:
-            os.makedirs(os.path.dirname(filename))
-        except OSError as exc: # Guard against race condition
-            if exc.errno != errno.EEXIST:
-                raise
-    with open(filename, "w") as f:
-        f.writelines(contents)
 
 def create_pack_mcmeta(version, description):
     contents = {
