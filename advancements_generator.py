@@ -29,7 +29,7 @@ def create_pack_mcmeta(version, description):
 
 def create_impossible_root():
     contents = {
-        "parent": "totally not possible",
+        "parent": "totally_not_possible",
         "criteria": {
             "impossible": {
                 "trigger": "minecraft:impossible"
