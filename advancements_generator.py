@@ -136,7 +136,7 @@ if __name__ == "__main__":
         except:
             print("Stopped.")
     except:
-        print("Impossible Advancements Generator by Onnowhere")
+        print("Advancement Disabler Generator by Onnowhere")
         print("Source: https://github.com/onnowhere/advancement-disabler")
         print("----------------------------------------------")
         print("This generates two datapacks based on the input Minecraft jar file.")
