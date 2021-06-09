@@ -13,7 +13,7 @@ You also have the option to **generate these datapacks for any version of Minecr
     - This pack **must be updated for new advancements in every Minecraft update**.
     - The vanilla advancements will still be able to be given through commands.
 
-## Updated for Minecraft versions 1.15 and 1.16
+## Updated for Minecraft versions 1.15, 1.16, and 1.17
 
 ## Visit here to download the datapacks directly: https://github.com/onnowhere/advancement-disabler/releases
 
